@@ -1,0 +1,52 @@
+baseURL = "https://cyogen.github.io/"
+languageCode = "en-us"
+title = "cyogen"
+theme = "terminal"
+paginate = 5
+
+[params]
+  contentTypeName = "posts"
+  themeColor = "green"
+  showMenuItems = 2
+  showLanguageSelector = false
+  fullWidthTheme = false
+  centerTheme = false
+  autoCover = true
+  readingTime = true
+  Subtitle = "CTF writeups & security research"
+
+[params.twitter]
+  creator = ""
+  site = ""
+
+[languages]
+  [languages.en]
+    languageName = "English"
+    title = "cyogen"
+    subtitle = "CTF writeups & security research"
+    owner = "cyogen"
+    keywords = "ctf, security, hacking, writeups"
+    copyright = ""
+    menuMore = "more"
+    readMore = "read more"
+    readOtherPosts = "read other posts"
+    newerPosts = "newer posts"
+    olderPosts = "older posts"
+    missingContentMessage = "Page not found..."
+    missingBackButtonLabel = "back to homepage"
+    minuteReadingTime = "min read"
+    words = "words"
+
+    [languages.en.params.logo]
+      logoText = "cyogen"
+      logoHomeLink = "/"
+
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "about"
+        name = "about"
+        url = "/about"
+      [[languages.en.menu.main]]
+        identifier = "posts"
+        name = "posts"
+        url = "/posts"
