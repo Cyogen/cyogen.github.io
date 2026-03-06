@@ -1,52 +1,30 @@
 baseURL = "https://cyogen.github.io/"
 languageCode = "en-us"
-title = "cyogen"
-theme = "terminal"
-paginate = 5
+theme = "poison"
+paginate = 10
+pluralizelisttitles = false
 
 [params]
-  contentTypeName = "posts"
-  themeColor = "green"
-  showMenuItems = 2
-  showLanguageSelector = false
-  fullWidthTheme = false
-  centerTheme = false
-  autoCover = true
-  readingTime = true
-  Subtitle = "CTF writeups & security research"
+  brand = "cyogen"
+  description = "CTF writeups & security research"
+  dark_mode = true
+  rss_icon = true
+  github_url = "https://github.com/Cyogen"
 
-[params.twitter]
-  creator = ""
-  site = ""
+  front_page_content = ["posts"]
 
-[languages]
-  [languages.en]
-    languageName = "English"
-    title = "cyogen"
-    subtitle = "CTF writeups & security research"
-    owner = "cyogen"
-    keywords = "ctf, security, hacking, writeups"
-    copyright = ""
-    menuMore = "more"
-    readMore = "read more"
-    readOtherPosts = "read other posts"
-    newerPosts = "newer posts"
-    olderPosts = "older posts"
-    missingContentMessage = "Page not found..."
-    missingBackButtonLabel = "back to homepage"
-    minuteReadingTime = "min read"
-    words = "words"
+[taxonomies]
+  series = "series"
+  tags = "tags"
 
-    [languages.en.params.logo]
-      logoText = "cyogen"
-      logoHomeLink = "/"
+[[menu.main]]
+  name = "Posts"
+  url = "/posts"
 
-    [languages.en.menu]
-      [[languages.en.menu.main]]
-        identifier = "about"
-        name = "about"
-        url = "/about"
-      [[languages.en.menu.main]]
-        identifier = "posts"
-        name = "posts"
-        url = "/posts"
+[[menu.main]]
+  name = "Tags"
+  url = "/tags"
+
+[[menu.main]]
+  name = "About"
+  url = "/about"
