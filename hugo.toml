@@ -1,30 +1,31 @@
 baseURL = "https://cyogen.github.io/"
 languageCode = "en-us"
-theme = "poison"
+title = "cyogen"
+theme = "hello-4s3ti"
 paginate = 10
-pluralizelisttitles = false
 
 [params]
-  brand = "cyogen"
+  homeSubtitle = "CTF writeups & security research"
   description = "CTF writeups & security research"
-  dark_mode = true
-  rss_icon = true
-  github_url = "https://github.com/Cyogen"
+  keywords = "ctf, security, hacking, writeups, reverse engineering"
+  defaultTheme = "dark"
 
-  front_page_content = ["posts"]
+  [params.social]
+    github = "https://github.com/Cyogen"
 
-[taxonomies]
-  series = "series"
-  tags = "tags"
-
-[[menu.main]]
-  name = "Posts"
-  url = "/posts"
-
-[[menu.main]]
-  name = "Tags"
-  url = "/tags"
-
-[[menu.main]]
-  name = "About"
-  url = "/about"
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "posts"
+    url = "/posts"
+    weight = 1
+  [[menu.main]]
+    identifier = "tags"
+    name = "tags"
+    url = "/tags"
+    weight = 2
+  [[menu.main]]
+    identifier = "about"
+    name = "about"
+    url = "/about"
+    weight = 3
