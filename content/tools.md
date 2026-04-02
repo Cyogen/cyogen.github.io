@@ -8,7 +8,7 @@ title = 'Tools'
 
 A Discord bot for Hack The Box seasonal servers. When a member earns the root flag on a seasonal machine, the bot automatically creates a dedicated channel for that machine (if one doesn't exist) and grants the solver read and post access. Everyone in the server can see the channel exists, but only root solvers can read and participate in it.
 
-**Source code:** [github.com/Cyogen/htb-season-bot](https://github.com/Cyogen)
+**Source code:** [github.com/Cyogen/htb-season-bot](https://github.com/Cyogen/htb-season-bot)
 
 **Invite HTB Season Bot:** *(invite link coming soon)*
 
