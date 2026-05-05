@@ -2,7 +2,7 @@ baseURL = "https://cyogen.github.io/"
 languageCode = "en-us"
 title = "cyogen"
 theme = "hello-4s3ti"
-paginate = 10
+paginate = 1000
 
 [params]
   homeSubtitle = "CTF writeups & security research"
