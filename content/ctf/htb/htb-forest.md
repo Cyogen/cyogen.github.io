@@ -17,7 +17,7 @@ draft = false
 | Release     | 2019                                           |
 | Tags        | Active Directory, LDAP, AS-REP Roasting, BloodHound, DCSync, Exchange |
 
-Forest is a Medium Windows box and one of the best AD-focused machines on the platform. It introduces a clean chain of real-world techniques: unauthenticated LDAP and RPC enumeration to build a user list, AS-REP Roasting a service account that has Kerberos pre-authentication disabled, then using BloodHound to identify a privilege escalation path through Exchange Windows Permissions to grant DCSync rights and dump the domain.
+Forest is a Medium Windows box, and honestly one of my favorites for how much real AD technique it packs into one machine. You get unauthenticated LDAP and RPC enumeration to pull a user list, AS-REP Roasting a service account with Kerberos pre-auth disabled, then BloodHound pointing straight at a privesc path through Exchange Windows Permissions that ends in DCSync and a full domain dump.
 
 ---
 
@@ -45,7 +45,7 @@ PORT     STATE SERVICE       VERSION
 9389/tcp open  mc-nmf        .NET Message Framing
 ```
 
-The port profile: DNS (53), Kerberos (88), LDAP (389/636/3268), RPC (135/593), SMB (445), and WinRM (5985): is a domain controller. The LDAP banner confirms the domain: `htb.local`.
+DNS, Kerberos, LDAP, RPC, SMB, and WinRM all open on the same box is basically a neon sign that says domain controller. The LDAP banner confirms the domain name too: `htb.local`.
 
 ---
 
@@ -265,9 +265,9 @@ nmap
 
 ---
 
-## Key Takeaways
+## Things Worth Remembering From This One
 
-- **AS-REP Roasting requires no credentials.** Any service account with `UF_DONT_REQUIRE_PREAUTH` set leaks an offline-crackable hash to anonymous requestors. Service accounts are frequent targets because they often have this flag set and use weak or static passwords.
-- **BloodHound finds non-obvious paths.** The `Account Operators → Exchange Windows Permissions → WriteDACL` chain is not something you would discover manually in a reasonable amount of time. Collecting and graphing AD relationships is essential for any AD engagement.
-- **WriteDACL on a domain object is effectively DA.** The ability to modify a domain object's DACL means you can grant yourself any right on the domain, including DCSync (DS-Replication-Get-Changes-All), which lets you impersonate a domain controller and pull every hash in the directory.
-- **Pass-the-hash with evil-winrm skips cracking entirely.** Once you have an NTLM hash for an account with WinRM access, `-H` gives you an interactive shell without needing the plaintext password.
+- **AS-REP Roasting needs zero credentials.** Any account with `UF_DONT_REQUIRE_PREAUTH` set will just hand an offline-crackable hash to anyone who asks. Service accounts get hit with this constantly because they tend to have the flag set and a lazy password behind it.
+- **BloodHound found this path in seconds, I never would have manually.** `Account Operators → Exchange Windows Permissions → WriteDACL` isn't something you stumble into by poking around by hand. If you're doing AD work without collecting and graphing relationships first, you're making it harder than it needs to be.
+- **WriteDACL on the domain object is basically game over.** Once you can edit that DACL you can grant yourself anything, DCSync included, which means impersonating a DC and walking out with every hash in the directory.
+- **Pass-the-hash skips cracking entirely.** Got an NTLM hash for an account with WinRM access? `-H` in evil-winrm gets you a shell, no plaintext password needed.
