@@ -6,18 +6,18 @@ description = "Splunk's blue team investigation dataset. Real attack data, real 
 draft = false
 +++
 
-Splunk's blue team training competition and dataset. BOTS presents real attack scenarios across a realistic environment and asks you to investigate them using Splunk. No walkthroughs, no guided steps. You get the data, a question, and a search bar.
+Splunk's own blue team training dataset and competition. BOTS drops you into a realistic environment with real attack scenarios and just expects you to investigate them in Splunk. No walkthrough, nobody holding your hand. Just the data, a question, and a search bar.
 
-Not a CTF in the traditional sense. There are no flags to pop or machines to exploit. The work is entirely investigative: correlating logs, tracing attacker behavior through the data, and answering questions about what happened and how. That is the SOC analyst job, compressed into a training environment.
+It's not really a CTF in the usual sense, no flags to pop, nothing to exploit. It's pure investigation, correlating logs, tracing what an attacker actually did through the data, figuring out what happened and how. Basically the SOC analyst job compressed down into something you can practice.
 
-## Why It Works
+## Why It's Actually Good
 
-**The data is real.** BOTS datasets are built from actual attack campaigns run against a live environment. The noise, the artifacts, the lateral movement traces all reflect what production logs look like, not a sanitized teaching example.
+**The data isn't sanitized.** BOTS is built from real attack campaigns run against a real environment, so the noise and artifacts and lateral movement traces look like actual production logs, not a tidy teaching example.
 
-**SPL under pressure.** Every answer requires writing searches. There is no clicking through a dashboard someone else built. Over time the searches get faster, the field names become familiar, and the instinct for where to look develops naturally.
+**You have to write the searches yourself.** No dashboard someone already built for you to click through. It's rough at first, but the SPL gets faster and the field names start feeling familiar pretty quick once you're doing it for real.
 
-**Scenario depth.** A single BOTS scenario covers multiple ATT&CK phases. An investigation that starts with a phishing email will run through execution, persistence, credential access, and exfiltration before it is done. Working the full chain in one session builds the mental model for how attacks actually progress.
+**One scenario covers a lot of ground.** A single investigation might touch phishing, execution, persistence, credential access, and exfiltration before it's over. Working through the whole chain in one sitting is what actually builds the instinct for how these attacks progress.
 
 ## Versions
 
-BOTS has multiple dataset versions (v1, v2, v3) each built around a different attack campaign. They can be loaded into a local Splunk instance or accessed through the Splunk Attack Range. Each version increases in complexity. Starting with v1 and working forward is the right order.
+There's v1, v2, and v3 so far, each built around a different campaign, and each one gets harder than the last. You can run them in a local Splunk instance or through the Splunk Attack Range. Starting at v1 and working up is the way to go, jumping straight to v3 would just be frustrating.
