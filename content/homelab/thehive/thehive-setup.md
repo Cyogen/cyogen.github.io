@@ -6,13 +6,9 @@ description = "Installing TheHive 3 on a System76 Lemur Pro: battling hardware q
 draft = false
 +++
 
-Wazuh generates alerts. TheHive turns them into cases: trackable, assignable,
-closeable. Without case management, a SIEM is just a wall of text nobody acts on.
+Wazuh throws alerts, but without something to turn them into actual trackable, assignable, closeable cases, a SIEM is just a wall of text nobody ever acts on. That's where TheHive comes in.
 
-This post covers deploying TheHive on a System76 Lemur Pro running Ubuntu
-Server. The hardware was uncooperative, the upstream repository was gone, and
-the documentation pointed at the wrong config format. All of it is documented
-here.
+Getting it running on a System76 Lemur Pro turned into more of a fight than I expected. The hardware wasn't cooperating, the upstream repo I needed was just gone, and the docs I found pointed at the wrong config format entirely. Writing all of it down here so I don't have to rediscover any of this next time.
 
 ## Hardware
 
@@ -256,5 +252,4 @@ curl -s http://127.0.0.1:9000/index.html | head -1
 Access at `http://10.0.42.139:9000`. Default credentials: `admin` / `secret`.
 Change the password on first login.
 
-TheHive is running. The next step is connecting it to Wazuh so every alert
-automatically becomes a case: covered in the next post.
+TheHive's actually up and running now. Next step is wiring it to Wazuh so alerts turn into cases on their own, which I'll get into in the next post.
