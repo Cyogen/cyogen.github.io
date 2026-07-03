@@ -6,38 +6,38 @@ description = "Steam OS and the Steam Deck changed what Linux gaming actually me
 draft = false
 +++
 
-For decades, "the year of Linux on the desktop" has been a running joke in tech circles. Every year someone announces it, nothing changes, Windows continues its reign, and the cycle repeats. Except something actually shifted. Not with a big announcement, not with a killer app, but with a handheld gaming device and a company that quietly made Linux gaming not just possible but genuinely good.
+"The year of Linux on the desktop" has been a running joke for as long as I can remember following tech news. Someone declares it every year, nothing actually changes, Windows keeps rolling on, repeat. Except this time something did shift, and not because of some big keynote announcement either. It was a handheld gaming device, of all things, plus a company slowly making its own OS worse.
 
-## The Steam Deck Did What Advocates Could Not
+## The Steam Deck Snuck Up on Everyone
 
-Valve released the Steam Deck in 2022 running SteamOS, a Linux-based operating system. The pitch was simple: a handheld PC that plays your Steam library. The result was something more significant: millions of people running Linux without thinking about it, without configuring anything, without caring what the underlying OS was.
+Valve shipped the Steam Deck back in 2022 running SteamOS. Pitch was simple enough, a handheld PC that runs your Steam library. What actually happened was bigger than that, millions of people running Linux and not even realizing or caring, because nothing about it required them to think about the OS at all.
 
-As of mid-2025, [Valve had shipped an estimated 5.6 million Steam Decks](https://commandlinux.com/statistics/steam-deck-linux-usage-growth-statistics/), holding 48% of the handheld gaming PC market. Deck users logged [330 million hours of playtime in 2024 alone, a 64% increase year over year](https://commandlinux.com/statistics/steam-deck-linux-usage-growth-statistics/). That is not a niche product. That is a platform.
+By mid-2025 [Valve had reportedly shipped around 5.6 million Steam Decks](https://commandlinux.com/statistics/steam-deck-linux-usage-growth-statistics/), close to half the handheld gaming PC market. People logged [330 million hours of playtime on it in 2024 alone, up 64% from the year before](https://commandlinux.com/statistics/steam-deck-linux-usage-growth-statistics/). At that point it's not a niche gadget anymore, it's a platform in its own right.
 
-The broader impact showed up in Valve's own Steam Hardware Survey. [Linux share on Steam crossed 5% in 2026](https://www.gameshub.com/news/article/steam-linux-5-percent-market-share-milestone-2863640/), up from 2% just a year earlier. For context, that number sat below 1% for most of the previous decade. The catalyst was not advocacy. It was Proton, Valve's compatibility layer that lets Linux run Windows games. [Approximately 90% of Steam's catalog is now playable on Linux through Proton](https://www.gamingonlinux.com/steam-tracker/). The library problem, which was always Linux gaming's biggest obstacle, is effectively solved.
+You can see the ripple effect in Valve's own hardware survey too. [Linux crossed 5% share on Steam in 2026](https://www.gameshub.com/news/article/steam-linux-5-percent-market-share-milestone-2863640/), up from 2% the year before, and it sat under 1% for most of the decade before that. What actually moved the needle wasn't advocacy, it was Proton, Valve's compatibility layer that runs Windows games on Linux. [Somewhere around 90% of Steam's catalog now works on Linux through it](https://www.gamingonlinux.com/steam-tracker/). The library problem, which was always the actual reason people stayed on Windows, is basically gone now.
 
-## Microsoft Helped by Being Microsoft
+## And Microsoft Didn't Exactly Help Itself
 
-It would be unfair not to acknowledge how much Microsoft contributed to this shift by making Windows increasingly difficult to like.
+Credit where it's due, Microsoft did a lot of the work here too, just by continuing to be Microsoft.
 
-[Windows 11 launched with TPM 2.0 and Secure Boot requirements](https://en.wikipedia.org/wiki/Windows_Recall) that instantly disqualified millions of capable machines. Not broken machines. Not old machines. Machines that ran Windows 10 perfectly and would have continued to do so. The message to those users was: buy new hardware or get left behind.
+[Windows 11 shipped with TPM 2.0 and Secure Boot requirements](https://en.wikipedia.org/wiki/Windows_Recall) that locked out a ton of perfectly good machines overnight. These weren't old or broken systems, plenty of them were running Windows 10 just fine and would have kept doing so for years. The message was basically buy new hardware or get left behind.
 
-Then came [Windows Recall](https://www.pcworld.com/article/2918617/is-windows-recall-storing-your-confidential-data-how-to-protect-yourself.html): a feature that takes a screenshot of your desktop every few seconds and feeds it to an on-device AI so you can search your own activity history. The security community reacted immediately and loudly. Microsoft pulled it, then quietly brought it back. The trust damage was done.
+Then [Windows Recall](https://www.pcworld.com/article/2918617/is-windows-recall-storing-your-confidential-data-how-to-protect-yourself.html) happened, screenshotting your desktop every few seconds and feeding it to an on-device AI so you could search your own activity later. Security folks lost it, understandably, Microsoft pulled the feature, then quietly rolled it back out anyway. That kind of thing doesn't un-happen once people notice.
 
-Add to that: ads appearing in the Start menu, pre-pinned apps users never asked for, Teams forced onto the taskbar until the backlash got loud enough to reverse it, and an OS that ships with enough startup bloat to measurably impact performance on mid-range hardware. Windows 11 is not a bad operating system. It is an operating system that does not trust you to make your own decisions, and it shows.
+Layer on the ads in the Start menu, apps pinned that nobody asked for, Teams jammed onto the taskbar until enough people complained, and enough startup bloat to actually drag down mid-range hardware. None of this makes Windows 11 a bad OS exactly. It just doesn't feel like it trusts you to run your own computer, and after enough of these it starts to grate.
 
-## LTT Said It Better Than Anyone
+## LTT Put It Better Than I Could
 
-Linus Sebastian and the Linus Tech Tips crew ran a 30-day Linux challenge in 2026, [documented across a full playlist on YouTube](https://www.youtube.com/playlist?list=PL8mG-RkN2uTyhe6fxWpnsHv53Y1I-K3yu). The series starts exactly where most Windows users are: skeptical, used to things just working, and not interested in a project. [Part 1](https://www.youtube.com/watch?v=kluoZ9RhmVo) captures that friction honestly. [Part 2](https://www.youtube.com/watch?v=QK02VOGWEv0) captures something else.
+Linus Sebastian and the LTT crew did a 30-day Linux challenge this year, [the whole thing's up on YouTube as a playlist](https://www.youtube.com/playlist?list=PL8mG-RkN2uTyhe6fxWpnsHv53Y1I-K3yu). It opens right where most Windows users actually are, skeptical, used to things just working without thinking, not exactly signing up for a side project. [Part 1](https://www.youtube.com/watch?v=kluoZ9RhmVo) is pretty honest about that friction. Somewhere around [part 2](https://www.youtube.com/watch?v=QK02VOGWEv0) something shifts.
 
-One line from the series has stuck with me as the most accurate description of the Windows experience I have heard: **"Windows doesn't get out of the way."**
+There's one line from the series I keep coming back to as basically the whole argument in five words: **"Windows doesn't get out of the way."**
 
-That is it. That is the whole thing. Updates that restart your machine mid-session. Notifications that cannot be fully silenced. Telemetry that cannot be fully disabled. Suggestions for products you did not ask about. An OS that is constantly reminding you it is there, that it has opinions, that it would like you to use Edge and try Bing and set up a Microsoft account and sign up for OneDrive. Linux, for all its historical friction, largely gets out of the way. You set it up, it runs, and it does not interrupt you to tell you about itself.
+Updates restarting your machine mid-task. Notifications you can't fully turn off. Telemetry you can't fully turn off either. Suggestions for stuff nobody asked for. It's constantly reminding you it exists, that it has opinions, that you should really try Edge and set up OneDrive while you're at it. Linux has plenty of its own historical friction, but once it's set up it mostly just runs and leaves you alone.
 
-If you have not watched the LTT Linux challenge, it is worth your time regardless of where you land on the OS debate. It is an honest account from someone with no particular stake in the outcome.
+Worth watching that playlist regardless of where you land on any of this, honestly. It's a fair account from someone who had no reason to root for either side going in.
 
-## Where This Goes
+## Where I Think This Actually Goes
 
-Linux is not going to replace Windows for most people tomorrow. Enterprise inertia alone ensures that. But the gaming argument, which was always the strongest counterargument to switching, no longer holds the way it did. The library is there. The hardware is there. The performance is there.
+Linux isn't taking over the desktop for most people tomorrow, enterprise inertia alone guarantees that much. But the gaming excuse, which used to be the single strongest reason not to switch, doesn't really hold up the way it used to. The library's there. The hardware's there. The performance is there.
 
-The year of Linux on the desktop was never going to arrive as a proclamation. It was going to arrive as a gradual shift where the reasons to stay on Windows quietly ran out one by one. That process is well underway.
+I don't think the year of Linux was ever going to arrive as some big announcement anyway. It was always going to be this instead, the reasons to stay on Windows quietly running out one at a time until there just aren't many left.
