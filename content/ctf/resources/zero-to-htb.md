@@ -6,7 +6,7 @@ description = "A complete walkthrough of my HTB environment: Kali setup, Termina
 draft = false
 +++
 
-This is not a tools list. You can find those anywhere. This is the actual setup: the specific config values, the exact keybindings, the small decisions that compound into a workflow that gets out of your way and lets you focus on the box. Start to finish.
+This isn't another tools list, there are a hundred of those already. This is my actual setup, the specific config values, the exact keybindings, all the small decisions I made that add up to a workflow I don't have to think about anymore. Start to finish, exactly as I run it.
 
 ---
 
@@ -14,7 +14,7 @@ This is not a tools list. You can find those anywhere. This is the actual setup:
 
 ### Kali Linux
 
-Kali is the obvious choice and the right one. The tooling is pre-installed, the community uses it, and writeups are written against it. Running it as a VM on your host gives you snapshots, easy networking config, and the ability to reset if something goes sideways.
+Kali's the obvious pick and honestly still the right one for this. Everything's pre-installed, the whole community writes for it, and most writeups assume it. Running it as a VM on the host also means snapshots and an easy reset button when you inevitably break something halfway through a box.
 
 I run Kali in QEMU/KVM with virt-manager. VMware and VirtualBox both work fine: the preference is personal. The important things are:
 
@@ -328,7 +328,7 @@ source ~/.bashrc
 
 ## PT 4: CherryTree
 
-CherryTree is the notes application. Not Obsidian, not Notion, not a text file. CherryTree. The reasons:
+I tried Obsidian, tried Notion, tried just dumping everything in a plain text file. Landed on CherryTree and stuck with it. Reasons why:
 
 - Works completely offline
 - Rich text and code nodes in the same tree
@@ -533,7 +533,7 @@ Always try `rockyou.txt` first. Then `rockyou.txt` with `best64.rule`. Then cust
 
 ### Step 1: Enumerate Before Everything
 
-Resist the urge to go straight to exploitation. Every box that I have gotten stuck on, the cause was incomplete enumeration. Every single time.
+Resist the urge to jump straight to exploitation. Looking back at every box that's ever given me real trouble, the actual problem was almost always that I hadn't finished enumerating yet.
 
 The order:
 
@@ -616,4 +616,4 @@ The Loot node gets updated every time you find a credential or a flag. Highlight
 [ ] HTB VPN downloaded and tested
 ```
 
-Every box starts the same way: `newbox <name>`, connect VPN, `vpnip`, `htb set <target-ip>`, open CherryTree from template, open Terminator in quad layout. The setup is invisible. The work is all that is left.
+Every box starts the exact same way now: `newbox <name>`, connect the VPN, `vpnip`, `htb set <target-ip>`, pull up CherryTree from the template, Terminator in the quad layout. Took a while to get here, but at this point I don't even think about the setup anymore, I just start on the box.
