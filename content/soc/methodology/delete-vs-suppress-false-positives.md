@@ -6,14 +6,11 @@ description = "After closing a false positive alert, you're left with a decision
 draft = false
 +++
 
-After [investigating the Wazuh rootcheck alert on `/usr/bin/chsh`](/soc/wazuh-rootcheck-false-positive-chsh/),
-I had a verified false positive sitting in my alert queue. The binary was
-clean, the rule was tuned, and the alert would never fire again.
+After [investigating the Wazuh rootcheck alert on `/usr/bin/chsh`](/soc/wazuh-rootcheck-false-positive-chsh/), I had a confirmed false positive just sitting there in my queue. Binary's clean, rule's tuned, it's never going to fire again.
 
-That left one question: what do I do with the alert that already exists?
+Which left me with one actual question: what do I do with the alert that's already there?
 
-The obvious answer is to delete it. It's noise. It's wrong. It shouldn't be
-there. But in a SOC environment, "obvious" is often the wrong call.
+My gut said delete it, obviously, it's noise, it's wrong, why would I keep it around. Turns out that instinct is usually wrong in a real SOC.
 
 ## Two Options, Different Implications
 
@@ -110,30 +107,24 @@ Deletion isn't always wrong. There are legitimate cases:
 In all three cases, deletion is a deliberate, documented decision: not a
 reflex to make the dashboard look clean.
 
-## What I Did
+## What I Actually Did
 
-For the chsh false positive: suppression, not deletion.
+Went with suppression on the chsh one, not deletion.
 
-The rule is tuned. The event stays in OpenSearch. If I ever need to audit
-what rootcheck was doing on the monitoring server in those first hours after deployment,
-the data is there. If a future analyst questions why there's a suppression
-rule for chsh, the original alert is the answer.
+Rule's tuned, and the event just sits there in OpenSearch untouched. If I ever need to go back and check what rootcheck was doing on the box in those first few hours after deployment, it's still there. And if some future version of me, or anyone else, wonders why there's a suppression rule for chsh sitting in local_rules.xml, the original alert answers that on its own.
 
-The alert queue is clean. The evidence is intact. That's the right outcome
-for a SOC, home lab or otherwise.
+Queue stays clean, evidence stays intact. That's the outcome I want out of a SOC, doesn't matter if it's a homelab or a real one.
 
 ## The Takeaway
 
-Every time you close a false positive, you're making a choice about log
-integrity. The correct default in a SOC is:
+Closing out a false positive is really a decision about log integrity whether you think of it that way or not. My default now is:
 
-1. **Investigate**: verify the alert is actually a false positive
-2. **Tune**: suppress at the rule layer so it doesn't recur
-3. **Document**: record why you suppressed it and what you verified
-4. **Retain**: leave the original event in the index
+1. **Investigate** it enough to actually confirm it's a false positive
+2. **Tune** it at the rule layer so it stops recurring
+3. **Document** why I suppressed it and what I checked
+4. **Retain** the original event in the index no matter what
 
-Delete only when you have a documented reason that goes beyond "it's
-cluttering my dashboard."
+Deletion only makes sense when there's a real documented reason behind it, not just "it's cluttering my dashboard."
 
-**Alert status: Suppressed: False Positive**
-**Data retained: Yes: original event preserved in OpenSearch index**
+**Alert status:** Suppressed, false positive
+**Data retained:** Yes, original event preserved in the OpenSearch index
