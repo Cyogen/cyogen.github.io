@@ -6,11 +6,11 @@ description = "Open-source case management for SOC workflows. Running in Docker,
 draft = false
 +++
 
-Open-source incident response and case management platform. Where Wazuh handles log ingestion and alerting, TheHive handles what comes after: opening a case, tracking the investigation, recording observables, and documenting the outcome.
+Open-source incident response and case management platform. Wazuh handles the log ingestion and alerting side, TheHive picks up from there, opening the case, tracking the investigation, logging observables, writing up what actually happened.
 
-Before this, case management in the homelab was a .txt template saved to a folder on a secondary drive. It worked, but it was disconnected from the alerts and left no searchable record. TheHive replaced that entirely.
+Before I set this up, my "case management" was a .txt template sitting in a folder on a second drive. It worked in the sense that the info existed somewhere, but it had zero connection to the actual alerts and nothing about it was searchable. TheHive fixed all of that.
 
-Running in Docker, connected to Wazuh via a custom integration script. Level 5+ alerts automatically open cases pre-tagged with the source agent, rule group, and MITRE ATT&CK technique. No manual case creation for anything significant.
+It runs in Docker and talks to Wazuh through a custom integration script I wrote. Anything level 5 or above opens a case automatically, already tagged with the source agent, rule group, and MITRE technique. I don't touch anything manually unless it's actually worth my time.
 
 ## Utility
 
@@ -20,6 +20,6 @@ Running in Docker, connected to Wazuh via a custom integration script. Level 5+ 
 
 **MITRE tagging.** Cases carry the ATT&CK tags from the Wazuh rule. Over time the case history maps to actual techniques investigated, not just rules written.
 
-## Current State
+## Where It's At
 
-Fully operational. The Wazuh integration is live and every significant alert creates a case automatically. Cases are worked the same way I would work a queue in a production environment.
+Fully up and running. The Wazuh integration is live, every significant alert opens its own case without me lifting a finger, and I work the queue the same way I'd expect to in an actual job.
