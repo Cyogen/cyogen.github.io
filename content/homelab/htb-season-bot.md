@@ -6,34 +6,28 @@ description = "A Discord bot that monitors the HTB-Updates bot, extracts box nam
 draft = false
 +++
 
-HackTheBox seasonal Discord servers have a spoiler problem. Players at different points in the same machine share a server, and anything posted about a box is a potential spoiler for everyone who has not rooted it yet. The common workarounds (spoiler tags, separate channels created manually, honor system) all fall apart at scale.
+HTB seasonal Discord servers all have the same problem. Everyone's at a different point on the same machine, and literally anything posted about a box can spoil it for someone still stuck on it. The usual fixes, spoiler tags, someone manually making channels, just trusting people not to talk, all fall apart once the server gets big enough.
 
-This bot solves it automatically.
+So I wrote a bot that handles it automatically instead of relying on people remembering to be careful.
 
 ## How It Works
 
-HackTheBox runs an official bot called HTB-Updates that posts to a designated channel whenever a user submits a root flag. That post contains the machine name and the solver's username.
+HTB runs its own bot, HTB-Updates, that posts to a channel every time someone submits a root flag. That post has the machine name and who solved it.
 
-The season bot monitors that channel. When HTB-Updates posts a root flag notification, the season bot:
+My bot just watches that channel. When a root flag notification comes through, it:
 
-1. Parses the post and extracts the machine name
-2. Checks whether a dedicated channel for that machine already exists
-3. If it does not exist, creates one with restricted permissions
-4. Locks the channel to confirmed solvers only
+1. Parses the post for the machine name
+2. Checks if a channel for that machine already exists
+3. Creates one with locked-down permissions if it doesn't
+4. Restricts it to people who've actually solved the box
 
-Players who have not rooted the box cannot see the channel. They cannot read the discussion, cannot be spoiled, and cannot use the channel to shortcut their way through a machine they are still working on.
+Anyone who hasn't rooted it yet can't even see the channel exists, let alone read it or use it to cheat their way through. Once you do root it, you get access the moment your flag posts through HTB-Updates, no manual step needed.
 
-Once rooted, a player gets access automatically when their flag posts through HTB-Updates.
+## What It's Replacing
 
-## The Problem It Replaces
+Before this, seasonal servers basically had three bad options: one big channel where spoilers are unavoidable, an admin manually pinning and creating channels for every box every season, or spoiler tags that still leak into notification previews anyway.
 
-Without this setup, seasonal servers either:
-
-- Have one general channel where spoilers are unavoidable
-- Rely on manually pinned channels that admins have to create for every machine every season
-- Use spoiler tags that still show up in notification previews
-
-The bot turns that into a zero-maintenance system. Every machine gets a channel exactly when the first person solves it, and access gates itself based on real solve data rather than trust.
+Now it's just zero-maintenance. A channel appears the second the first person solves a box, and who gets in is based on actual solve data instead of the honor system.
 
 ## Requirements
 
