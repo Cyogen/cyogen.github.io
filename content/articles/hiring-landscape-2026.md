@@ -6,94 +6,92 @@ description = "The tech hiring market in 2026 is a mess. AI is eliminating entry
 draft = false
 +++
 
-Let us talk about where we are.
+Okay, let's talk about this, because it's been on my mind a lot lately.
 
-The tech hiring market has been rough since the mass layoffs of 2022 and 2023. Most people assumed it was a correction (a hangover from the pandemic-era over-hiring) and that things would normalize. It is 2026 and things have not normalized. They have gotten stranger.
+Hiring in tech has been rough since the layoffs of 2022 and 2023. I remember figuring it was a correction, a hangover from over-hiring during the pandemic, and that it would sort itself out eventually. It's 2026 now. It didn't sort itself out. If anything it got weirder.
 
-According to [layoffs.fyi](https://layoffs.fyi), approximately 93,000 tech workers were laid off in 2022, followed by 262,735 in 2023, and 152,922 in 2024. As of mid-2026, [TechCrunch's running list of AI-driven layoffs](https://techcrunch.com/2026/06/22/the-running-list-major-tech-layoffs-in-2026-where-employers-cited-ai/) tracks nearly 50,000 job cuts this year alone that explicitly cite AI as the driver. That is not a correction anymore. That is a structural change.
+[layoffs.fyi](https://layoffs.fyi) puts it at roughly 93,000 tech layoffs in 2022, 262,735 in 2023, and 152,922 in 2024. [TechCrunch's running list of AI-driven layoffs](https://techcrunch.com/2026/06/22/the-running-list-major-tech-layoffs-in-2026-where-employers-cited-ai/) already has close to 50,000 cuts logged for 2026 where the company flat out said AI was the reason. At some point you have to stop calling that a correction and just call it what it is.
 
-The economy is not in freefall. Unemployment numbers look passable on paper. But if you are in tech, and especially if you are trying to break in, the numbers do not reflect what is actually happening on the ground. What is happening on the ground is a specific kind of brutal: plenty of job postings, very few actual hires, and a hiring process that has been quietly outsourced to software.
-
----
-
-## The Structural Shift Nobody Wants to Talk About
-
-AI did not just automate tasks. It restructured the entry point of entire job categories.
-
-Junior developer roles, the ones that used to be how new engineers got their first real experience, have quietly disappeared from a lot of organizations. [21% of companies have already frozen entry-level hiring because of AI, with 36% expecting to do so by the end of 2026](https://www.techrepublic.com/article/news-ai-job-losses-entry-level-tech-layoffs/). Why hire a junior to write boilerplate, fix simple bugs, and slowly ramp up over 18 months when a senior engineer with the right AI tooling can cover that output in an afternoon? The math is not complicated, and companies did the math.
-
-The same pattern is playing out in data analysis, QA, IT support, and increasingly in SOC work. [56% of layoff events in 2026 cite AI, automation, or machine learning as a driving factor](https://skillsyncer.com/layoffs-tracker). The roles hit hardest are data entry, customer service, admin, and help desk. Not the senior roles. The pipeline roles. The ones people used to use to get their foot in the door.
-
-The catch-22 writes itself: you cannot get experience without a job, and you cannot get a job without experience. This was always true to some degree. Now the floor of "acceptable experience" has risen and the number of positions that build that experience has dropped. Both at the same time.
+Unemployment looks fine on paper, the economy isn't collapsing. But if you're trying to actually get into tech right now, none of that matches what you're seeing when you open your applications tab. Tons of postings, almost nothing moving, and half the process is a machine now anyway.
 
 ---
 
-## The Economy Is Fine, Actually (If You Ask the Right People)
+## The Part Nobody Really Wants to Say Out Loud
 
-Inflation cooled. Markets recovered. If you read the headlines, things are pretty good. If you are a mid-career professional who got caught in a layoff trying to re-enter a market that has restructured around you, the headlines feel like satire.
+It's not that AI automated some tasks. It kind of yanked the bottom rung off the ladder entirely.
 
-The jobs that disappeared did not all come back. Some were consolidated. Some were automated. Some just stopped being budgeted for as companies decided that leaner org charts were more profitable and AI tools were good enough to cover the gap.
+Junior dev roles, the ones people used to actually cut their teeth on, have quietly disappeared at a lot of shops. [21% of companies have already frozen entry-level hiring because of AI, with 36% expecting to do so by the end of 2026](https://www.techrepublic.com/article/news-ai-job-losses-entry-level-tech-layoffs/). Makes sense in a cold way, why pay a junior to write boilerplate and slowly ramp up over a year and a half when a senior with decent AI tooling knocks that out in an afternoon.
 
-Budget cuts hit IT and security teams hard. Headcount is down at a lot of organizations that are not cutting services, just cutting the people running them. The people still there are doing more. The salaries for those people are fine, actually. The problem is there are fewer seats at the table and a lot more people trying to sit down.
+Same thing is happening in data analysis, QA, IT support, and it's creeping into SOC work too. [56% of layoff events in 2026 cite AI, automation, or machine learning as a driving factor](https://skillsyncer.com/layoffs-tracker), and the hardest hit spots are data entry, customer service, admin, help desk. Basically every role people used to use as a foot in the door.
 
----
-
-## The Resume Problem, or: Your First Interview Is With a Robot and the Robot Does Not Like You
-
-Here is where it gets genuinely absurd.
-
-Companies are overwhelmed with applications. That part is real. So they brought in help. The help is an AI resume screener. And the numbers on how these systems actually behave should make your blood pressure tick up slightly.
-
-[83% of companies now use AI to screen resumes](https://blog.theinterviewguys.com/83-of-companies-will-use-ai-resume-screening-by-2025-despite-67-acknowledging-bias-concerns/). Of those, [50% use AI exclusively for rejections during the initial screening stage](https://jobcannon.io/blog/ai-resume-statistics-2026), meaning half of all applicants never have a human being look at their application before being eliminated. Gone. Filtered. Into the void.
-
-Here is the part where you should appreciate the poetry of it. The same technology reshaping the job market is also the gatekeeper deciding who gets to participate in what remains of the job market. If you are a displaced tech worker whose role was automated away, you now get to have your resume evaluated by the thing that replaced you. Welcome.
-
-And the kicker? [88% of employers themselves believe ATS systems screen out highly qualified candidates due to formatting issues or missing keywords](https://www.coversentry.com/ats-statistics). Not 88% of job seekers complaining. 88% of the employers running the systems. They know their own filters are rejecting qualified people and they are still using them. Because the alternative is hiring someone to read several hundred applications by hand, and that person would be a human, and humans cost money.
+So now you've got the old catch-22, no job without experience, no experience without a job, except the bar for "acceptable experience" went up right as the number of jobs that used to build it went down.
 
 ---
 
-## A Brief Field Guide to Getting Past the Robot
+## The Economy Is Supposedly Fine
 
-The advice that exists for navigating AI resume screening is, and I want to be very clear about this, advice about how to trick software into forwarding your resume to a person. This is where we are.
+Inflation cooled off, markets recovered, and if you just read headlines things look okay. Try telling that to someone who got laid off two years ago and is still trying to get back in. To them the headlines read like a joke.
 
-**Keyword matching is still king.** If the job description says "SIEM" and your resume says "Security Information and Event Management," some systems will not connect those. Use the exact terms from the posting. Yes, this means slightly rewriting your resume for each application. No, this is not a good use of your time. Do it anyway.
+A lot of the jobs that vanished just didn't come back. Some got consolidated, some got automated outright, some just quietly stopped being in the budget once leadership decided a leaner org chart plus decent AI tooling covered the gap well enough.
 
-**Formatting will get you killed.** Tables, columns, graphics, headers in text boxes, PDFs with embedded fonts that parse incorrectly: all of these cause parsing failures that result in silent rejections. Plain text structure, standard section headers, no fancy layout. Your resume needs to be readable by a program that strips all formatting before it ever reaches a human eye.
-
-**The ATS does not know what your job actually was.** It knows what words appear in your resume. If you led a security operations center implementation but described it in plain language rather than with the specific phrases the role requires, the system may score you below someone who listed the same keywords with less actual substance behind them. Optimize accordingly and feel whatever you need to feel about that.
-
-**Quantify everything.** "Improved detection response time" scores lower than "reduced mean time to detect by 40%." The number does not need to be impressive. It needs to exist.
+IT and security teams got hit particularly hard on the budget side. Same amount of work, fewer people to do it, and the ones still there are stretched thinner. Pay for those remaining roles is honestly fine. The problem is just that there are fewer seats and a lot more people trying to sit down.
 
 ---
 
-## The Human Who Eventually Reads It Has 7.4 Seconds
+## Your First Interview Is a Robot and It Doesn't Like You
 
-Assuming you clear the AI screen, a human will look at your resume. [TheLadders' eye-tracking study found that recruiters spend an average of 7.4 seconds on initial resume review](https://www.theladders.com/career-advice/you-only-get-6-seconds-of-fame-make-it-count). In that window they check your current title and company, your previous role, your employment dates, and your education. In that order. That is the entire first pass.
+This is the part that gets genuinely absurd.
 
-The recruiter is often not a technical person. They are looking for the presence of required terms, a coherent career narrative, and anything that looks wrong. They are not evaluating the nuance of your detection engineering work. That evaluation happens later, if it happens at all.
+Companies get buried in applications, that part's real, so they hand it off to software. [83% of companies now use AI to screen resumes](https://blog.theinterviewguys.com/83-of-companies-will-use-ai-resume-screening-by-2025-despite-67-acknowledging-bias-concerns/), and [50% use it exclusively for rejections at the initial screening stage](https://jobcannon.io/blog/ai-resume-statistics-2026). So half of everyone who applies never gets seen by a human being at all. Just gone.
 
-So you are optimizing for: a robot that processes text, then a non-technical human who skims for 7 seconds, then (maybe) a technical person who actually cares. Three filters with different criteria. Your resume needs to survive all three. Only about [5% of applicants make it to an interview](https://high5test.com/resume-statistics/).
+There's a dark joke buried in here somewhere. The same technology that reshaped the job market also gets to decide who's allowed back into what's left of it. If your old role got automated away, guess who reviews your resume for the next one.
 
----
-
-## Cybersecurity Specifically
-
-The security field gets talked about as if it is immune to this. "Millions of unfilled cybersecurity jobs." You have seen the statistic. It gets cited constantly.
-
-The [ISC2 2024 Cybersecurity Workforce Study](https://www.isc2.org/Insights/2024/10/ISC2-2024-Cybersecurity-Workforce-Study) puts the global workforce gap at 4.8 million, meaning the industry needs 4.8 million more professionals than currently exist to adequately secure organizations worldwide. That number is real. What is also real is that the ISC2's own 2025 update shifted focus away from headcount entirely, noting that respondents now consider skills shortages more critical than simply needing more people. The gap is not just about bodies. It is about what those people can actually do.
-
-The "millions of unfilled jobs" stat is technically accurate and practically misleading. The unfilled roles are not unfilled because there are no people. They are unfilled because the bar for "qualified" has shifted, because remote work policies contracted and geography is back as a constraint, because budget freezes mean posted roles sit open indefinitely with no actual hire happening, and because a lot of "open" positions are aspirational headcount that organizations listed without firm plans to fill.
-
-Entry-level SOC roles that do not require five years of experience are real but competitive in a way that was not true three or four years ago. The candidate pool now includes people with actual experience who got laid off and are willing to take something at a lower level while they look. So the competition for genuinely entry-level roles includes people who are not actually entry-level.
+And here's the part that actually got me: [88% of employers themselves think their ATS is screening out qualified candidates](https://www.coversentry.com/ats-statistics) over formatting or missing keywords. Not job seekers complaining, the employers running the software. They know it's tossing good people and they keep using it anyway, because the alternative is paying a human to read a few hundred resumes by hand.
 
 ---
 
-## The Part Where I Tell You What To Do
+## What I've Picked Up About Beating the Robot
 
-Keep building. Document everything. The portfolio is not optional in this market, it is the only thing that differentiates candidates who look similar on paper. Get your work visible. Write about it. Post about it. Make it searchable.
+Basically all the advice out there for this boils down to tricking software into forwarding your resume to an actual person. Kind of a bleak thing to type out loud but here we are.
 
-The AI screening problem has a partial solution: apply anyway, optimize your resume text, and use every other path available in parallel. Referrals bypass the screener. Direct outreach to hiring managers with a reason to reach out (a relevant project, a shared connection, a genuine question about the role) gets a human reading your work before the ATS decides your fate.
+**Keyword matching still matters more than it should.** Job posting says "SIEM," your resume says "Security Information and Event Management," some systems won't connect the two. Use their exact words. Yes, that means tweaking your resume per application. No, it's not a great use of an evening. Do it anyway.
 
-The market is difficult but not static. Companies that went too lean are already discovering what happens when you cut too deep. [Gartner forecasts that by 2027, half of companies that attributed headcount reductions to AI will rehire staff for similar functions under different job titles](https://aimultiple.com/ai-job-loss). The pendulum swings. The question is whether you are positioned when it does.
+**Formatting is a landmine.** Tables, columns, text boxes, a PDF with fonts that don't parse right, any of that can silently torpedo you before a human ever sees it. Plain layout, normal section headers, nothing fancy. Assume a dumb program is going to strip everything down before it reaches a person.
 
-Build the lab. Get the certifications. Write the posts. Apply to the jobs with an optimized resume, because the robot is reading it first, and the robot is not your friend.
+**The ATS has no idea what your job actually was.** It just knows which words showed up. Describe your work in plain English instead of the exact phrasing from the posting and you might score under someone who padded their resume with the right buzzwords and did less real work than you. Annoying, but that's the game.
+
+**Numbers help, even soft ones.** "Improved detection response time" reads worse to these systems than "reduced mean time to detect by 40%." Doesn't need to be an impressive number. It just needs to be there.
+
+---
+
+## Then a Human Gets 7.4 Seconds
+
+Say you clear the robot. Now a person looks at it. [TheLadders' eye-tracking study clocked the average initial review at 7.4 seconds](https://www.theladders.com/career-advice/you-only-get-6-seconds-of-fame-make-it-count). Title, company, previous role, dates, education, in that order, and that's it, that's the whole first pass.
+
+That recruiter usually isn't technical either. They're scanning for required terms and a story that hangs together and nothing that looks off. Nobody's evaluating your detection engineering chops at this stage. That's later, if it happens.
+
+So really you're clearing three filters back to back, a robot, a skimming non-technical human, and maybe eventually someone who actually knows the field. [Only about 5% of applicants make it to an interview](https://high5test.com/resume-statistics/), which tracks.
+
+---
+
+## Where Cybersecurity Fits Into All This
+
+People act like security is immune to all this. "Millions of unfilled cybersecurity jobs," you've definitely seen that stat, it gets thrown around constantly.
+
+The [ISC2 2024 Cybersecurity Workforce Study](https://www.isc2.org/Insights/2024/10/ISC2-2024-Cybersecurity-Workforce-Study) puts the gap at 4.8 million. That's a real number. What's also real, and less quoted, is that ISC2's own 2025 update moved away from headcount as the framing entirely, since their own respondents now say skills shortages matter more than raw bodies. It's not just that there aren't enough people. It's what those people can actually do once they're in the seat.
+
+So the "millions of unfilled jobs" line is technically true and kind of misleading at the same time. Those roles aren't empty because nobody exists to fill them. They're empty because the bar for "qualified" crept up, remote work contracted so geography matters again, budget freezes leave postings open with no real intent to hire, and a chunk of "open roles" were aspirational headcount nobody actually funded.
+
+Entry-level SOC work is out there, and it's genuinely more competitive than it was three or four years ago, mostly because the pool now includes laid-off people with real experience who are willing to take a step down while they wait things out. So "entry-level" doesn't mean the same thing it used to.
+
+---
+
+## So What Do You Actually Do
+
+Keep building, document what you build. In a market like this the portfolio is the only thing that separates you from ten other people with the same certs on paper. Get it out there where someone can find it.
+
+There's no real fix for the ATS problem, just workarounds. Apply anyway, optimize the resume text, but lean hard on everything that skips the screener entirely. Referrals skip it. So does emailing a hiring manager directly with an actual reason, a relevant project, a shared connection, a real question about the role, anything that gets a human looking at your work before software decides you don't exist.
+
+None of this is permanent either. Companies that cut too deep are already finding out what that costs them. [Gartner's forecasting that by 2027, half the companies that blamed headcount cuts on AI will be rehiring for the same functions under new titles](https://aimultiple.com/ai-job-loss). It swings back eventually. The only real question is whether you're ready when it does.
+
+So, build the lab, get the certs, write the posts, and send the applications with a resume built for the robot, because the robot's the one reading it first and it does not care about you.
