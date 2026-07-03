@@ -6,7 +6,7 @@ description = "Hands-on SPL query development for Windows security log analysis 
 draft = false
 +++
 
-Practical experience with Splunk SPL queries built during a lab exercise using Splunk Enterprise against Windows 11 event logs forwarded through a pfSense network. The focus was writing real detection queries, not just running pre-built content.
+Notes from a lab exercise where I actually sat down and wrote SPL against Windows 11 event logs forwarded through a pfSense network on Splunk Enterprise. Wanted to build real detection queries myself instead of just running whatever came pre-packaged.
 
 ## Environment
 
