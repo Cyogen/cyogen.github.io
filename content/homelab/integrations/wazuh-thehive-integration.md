@@ -6,10 +6,10 @@ description = "Wiring Wazuh's custom integration framework to TheHive's REST API
 draft = false
 +++
 
-With Wazuh generating alerts and TheHive ready to manage cases, the missing
-piece is the connection between them. This post covers building that bridge -
-a Python integration script that runs on the Wazuh manager and pushes alerts
-into TheHive as cases the moment they fire.
+Wazuh's generating alerts, TheHive's sitting there ready to manage cases, and
+the only thing missing is actually wiring the two together. This post is that
+bridge, a Python script that lives on the Wazuh manager and fires alerts into
+TheHive as cases the instant they trip.
 
 ## How Wazuh Integrations Work
 
@@ -144,15 +144,13 @@ Restart the manager to apply:
 sudo systemctl restart wazuh-manager
 ```
 
-## Result
+## What Happened When I Restarted It
 
-Six cases appeared in TheHive immediately after the restart: Wazuh
-backfilling queued alerts from agents that had already been generating events.
-No manual trigger required.
+Six cases showed up in TheHive right after the restart, before I'd even done anything else. Turned out Wazuh had queued alerts from agents that were already generating events, and it just backfilled the whole batch on its own. Didn't have to trigger anything manually.
 
 ![TheHive case queue populated from Wazuh alerts](/images/TheHive_caseIntegration.png)
 
-The pipeline is now fully connected:
+So the pipeline looks like this now:
 
 ```
 Agent (Arch Linux Workstation / DC01 / SIEM Server)
@@ -162,11 +160,6 @@ Agent (Arch Linux Workstation / DC01 / SIEM Server)
         → Case queue
 ```
 
-Every alert at level 5+ lands in TheHive with the full alert JSON attached,
-severity mapped, agent context included, and tags for filtering by rule ID
-and level. Cases can be assigned, worked, and closed with a documented
-timeline.
+Anything level 5 or above lands in TheHive with the full alert JSON attached, severity already mapped, agent context included, tagged by rule ID and level so I can filter later. From there I can assign it, work it, close it out with an actual timeline instead of just a Slack message to myself.
 
-That's a functional SOC workflow running on commodity hardware. Next up:
-generating real detections: Atomic Red Team simulations against the Active
-Directory lab.
+Feels like a real SOC workflow at this point, just running on hardware sitting in my apartment. Next thing on the list is generating actual detections to test it against, probably Atomic Red Team against the AD lab.
