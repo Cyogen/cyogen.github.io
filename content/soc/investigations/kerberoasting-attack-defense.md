@@ -6,13 +6,13 @@ description = "Simulating a Kerberoasting attack against an Active Directory env
 draft = false
 +++
 
-Kerberoasting is one of the most common Active Directory attack techniques and one of the first things a red teamer tries after getting a foothold. The attack is quiet, requires no special privileges, and targets a fundamental part of how Kerberos authentication works. This post covers the full attack chain and then the detection and defense side.
+Kerberoasting is one of those AD techniques that shows up constantly, it's usually one of the first things tried once someone's got any foothold at all. Part of why it's so popular is that it's quiet, needs no special privileges, and just abuses how Kerberos authentication is designed to work in the first place. I ran the full attack in the lab and then built out detection and defense around it.
 
 ## How Kerberoasting Works
 
 Kerberos uses Service Principal Names (SPNs) to link service instances to their logon accounts. Any authenticated domain user can request a Ticket Granting Service (TGS) ticket for any SPN in the domain. The ticket comes back encrypted with the service account's NTLM hash.
 
-Once you have that ticket, you take it offline and crack it. No network noise during the cracking phase, no lockout risk, no elevated privileges required to request the ticket. That is what makes it dangerous.
+Once that ticket's in hand you crack it completely offline, no more network noise, no lockout risk, and you never needed elevated privileges just to request it in the first place. That combination is exactly why it's dangerous.
 
 ## Environment
 
