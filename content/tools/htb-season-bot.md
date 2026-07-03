@@ -6,10 +6,10 @@ description = "A Discord bot that automatically creates spoiler-locked channels 
 draft = false
 +++
 
-A Discord bot built for HackTheBox seasonal Discord servers. The problem it solves: how do you let people discuss a machine without spoiling it for everyone who hasn't solved it yet?
+A Discord bot I built for HTB seasonal servers, mostly to solve one annoying problem: how do people actually talk about a machine without spoiling it for everyone still working on it?
 
-When a user submits a root flag, the HTB-Updates bot posts a badge in a monitored channel. This bot reads that post, extracts the box name, and automatically creates a dedicated channel for that machine. Channel permissions are locked to confirmed solvers only. Players who haven't rooted the box yet cannot see the discussion, cannot be spoiled, and cannot use the channel to cheat their way through.
+When someone submits a root flag, HTB's own bot posts a badge in a monitored channel. Mine reads that post, pulls out the box name, and spins up a dedicated channel locked to confirmed solvers only. Anyone who hasn't rooted it yet doesn't even see the channel exists, can't get spoiled, can't peek at the discussion to shortcut their way through.
 
-The result is a server where rooted machines can be discussed freely and openly, without any risk to players still working through them.
+End result is a server where people can actually talk openly about rooted machines without putting anyone else at risk.
 
-Requires the HTB-Updates bot to be present and posting to a monitored channel.
+Only real requirement is that HTB-Updates has to be present and posting in the same server.
