@@ -6,9 +6,9 @@ description = "Common SOC analyst interview scenarios broken down by what they'r
 draft = false
 +++
 
-SOC analyst interviews rely heavily on scenarios. They'll describe an alert, an incident, or a situation and ask what you do. On the surface it looks like a knowledge test. It isn't. The scenario is a vehicle. What they're evaluating is how you think: whether you have a repeatable process, whether you work in chains or in isolated events, whether you know what questions to ask before you act.
+A lot of SOC interviews lean hard on scenario questions. They describe an alert or an incident and just ask what you'd do. Looks like a knowledge check on the surface, but I don't think that's really what's happening. The scenario's just the vehicle, what they're actually watching for is how you think, whether you've got a repeatable process, whether you chain evidence together or treat everything as an isolated event.
 
-I've been working through these scenarios as preparation and documenting what I'm learning about the thinking they're designed to surface. These are my notes on what each type of question is actually after.
+I've been running through a bunch of these as prep, and writing down what I think each one is really probing for underneath the surface question.
 
 ---
 
@@ -60,7 +60,7 @@ The sequence matters more than any individual step. Specifically: contain first,
 After containment:
 
 - **Scope the email:** who else got it? One target is different from a hundred. Pull the sending IP, domain, URL, and any attachments.
-- **Check what the URL served:** credential harvester, drive-by download, or redirect chain? That determines the response. A credential harvesting page means a password reset happens immediately, before you confirm whether the user actually submitted credentials. You can re-issue a password; you can't un-leak one.
+- **Check what the URL served:** credential harvester, drive-by download, or redirect chain? That determines the response. A credential harvesting page means a password reset happens immediately, before you even confirm the user typed anything in. A reset is a minor inconvenience. Waiting to find out is not.
 - **Check the endpoint:** what spawned from the browser after the click? What files were written? What network connections fired?
 - **Check auth logs:** did the account log in from an unexpected location after the click? Did an unfamiliar process use the user's credentials?
 - **Treat it as a campaign:** search the same IOCs across all endpoints and mailboxes before you close the scope.
@@ -105,10 +105,10 @@ And crucially: document the reasoning even if you close it as benign. If it fire
 
 ---
 
-## What the Scenarios Have in Common
+## The Thread Running Through All of These
 
-Every one of these is testing the same thing from a different angle: whether you have a repeatable, documented process for moving through ambiguity.
+Strip away the specifics and it's the same question every time, dressed up differently: do you have a repeatable, documented way of moving through ambiguity, or are you improvising each time.
 
-The specific steps are learnable. The instinct to build a chain instead of answering a single question, to contain before you fully understand, to document decisions rather than just making them. That's what they're actually trying to see.
+Anyone can memorize the steps. What's harder to fake is the instinct underneath them, building a chain instead of stopping at one data point, containing before you fully understand, writing down why you made a call instead of just making it.
 
-Saying "I don't know" is almost never the right answer. Saying "I don't know yet, and here's how I'd find out" is.
+If there's one line worth keeping in your back pocket for these, it's that "I don't know" on its own is a dead end. "I don't know yet, here's how I'd find out" is a completely different answer.
