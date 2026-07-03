@@ -105,10 +105,7 @@ sudo systemctl restart wazuh-manager
 
 ## Takeaway
 
-Every SOC analyst deals with false positives. The job isn't to panic at every
-alert: it's to investigate methodically, reach a defensible conclusion, and tune
-the tooling so real threats aren't buried in noise. This one took about two
-minutes to close with confidence.
+Everyone doing this job runs into false positives constantly, that's just the reality of it. The point isn't to panic every time something fires, it's to actually check it out, land on a conclusion you can defend, and tune the noise down so the real stuff doesn't get buried. This whole thing took maybe two minutes once I knew where to look.
 
-**Alert status: Closed: False Positive**
-**Rule tuned: Yes: suppressed via local_rules.xml rule 100001**
+**Alert status:** Closed, false positive
+**Rule tuned:** Yes, suppressed via local_rules.xml rule 100001
