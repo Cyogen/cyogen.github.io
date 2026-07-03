@@ -17,7 +17,7 @@ draft = false
 | Release     | 2017                               |
 | Tags        | Web, CGI, Shellshock, Sudo, Perl   |
 
-Shocker is a classic easy Linux box built around CVE-2014-6271, better known as Shellshock. The name is a direct hint. The path is: find a CGI script hidden in `/cgi-bin/`, craft a Shellshock payload in the User-Agent header, catch a reverse shell, then abuse a passwordless `sudo` entry for Perl to escalate to root.
+Shocker is a classic easy box, and once you clock what it's named after you basically know the whole path. It's built entirely around CVE-2014-6271, Shellshock. Find the CGI script hiding in `/cgi-bin/`, drop a Shellshock payload into the User-Agent header, catch your shell, then ride a passwordless sudo entry for Perl straight to root.
 
 ---
 
@@ -218,9 +218,9 @@ nmap
 
 ---
 
-## Key Takeaways
+## Things Worth Remembering From This One
 
-- **The `-f` flag in gobuster is non-obvious but important.** Apache CGI directories return 404 without the trailing slash rather than 301, which causes standard gobuster runs to miss them silently. Always test with `-f` when the target is Apache.
-- **The machine name is a hint.** "Shocker" + `/cgi-bin/` is an immediate pointer to Shellshock. Recognising these signals saves time during enumeration.
-- **Shellshock requires the `echo;` separator.** Without the blank line between function definition and body, the HTTP response is malformed and the server returns 500. The payload fails silently without it.
-- **NOPASSWD sudo entries for interpreters are root.** Any language runtime in a sudo entry without a password (`perl`, `python`, `ruby`, `awk`, etc.) is an unconditional path to root via `exec` or `system`. GTFOBins documents all of them.
+- **The `-f` flag in gobuster almost cost me this box.** Apache CGI directories 404 without a trailing slash instead of redirecting, so a normal gobuster run just silently skips them. Worth testing with `-f` by default against Apache targets now.
+- **Box names are hints more often than people give them credit for.** "Shocker" plus a `/cgi-bin/` directory is about as subtle as a brick through a window.
+- **Forgetting the `echo;` separator will waste your time.** Skip that blank line and the HTTP response comes back malformed, server just 500s and the payload fails without telling you why.
+- **NOPASSWD sudo on any interpreter is root, full stop.** Perl, Python, Ruby, awk, doesn't matter which, if it's in a sudoers entry with no password it's an `exec` or `system` call away from a root shell. GTFOBins has the exact one-liner for basically every language you'll run into.
