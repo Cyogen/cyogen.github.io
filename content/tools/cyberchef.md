@@ -6,9 +6,9 @@ description = "Browser-based data transformation tool. The first tab open on any
 draft = false
 +++
 
-Browser-based data transformation tool from GCHQ. Takes encoded, obfuscated, or mangled data and lets you chain operations to decode it. No scripting, no local installs, no copying between tools.
+Browser-based data transformation tool that GCHQ of all people built and open sourced. You throw encoded or mangled data at it and chain operations together until it's readable, no scripting, no install, no copy-pasting between five different tools.
 
-Used constantly in CTF work and comes up immediately in any alert involving obfuscated commands or suspicious strings. When a PowerShell alert fires with a base64 blob in the command line, CyberChef is the first tab that opens.
+I use this constantly, both in CTFs and the second an alert shows up with an obfuscated command or a weird string in it. If a PowerShell alert fires with a base64 blob sitting in the command line, this is the tab I open before anything else.
 
 ## Utility
 
