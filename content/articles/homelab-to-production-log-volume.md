@@ -6,31 +6,31 @@ description = "At homelab scale, retention is just a disk question. At productio
 draft = false
 +++
 
-A comment on a recent LinkedIn post asked a question worth writing about properly: how are you handling log volume and retention costs as you scale a simulation? That is where most homelab to production transitions break down.
+Someone commented on a LinkedIn post I made asking how I'm handling log volume and retention costs as the homelab scales up. Good question, and it stuck with me enough that I wanted to actually sit down and answer it properly instead of a one-liner reply.
 
-It is a good question. A great one, actually, and not because it is technically difficult to answer. It is great because it targets the exact blind spot a homelab creates.
+It's a good question specifically because it's not a hard one to answer technically, it's a hard one to have actually thought about. It pokes right at the blind spot a homelab creates.
 
-When everything runs on local hardware with no licensing costs and unlimited cheap storage, you never develop intuition for the constraints that govern real SOC architecture decisions. You can build a technically correct detection pipeline and still have no feel for why an enterprise would filter certain log sources before they hit the SIEM, or why retention policies exist as a cost management tool and not just a compliance checkbox. The question essentially asks: do you understand the economics and engineering tradeoffs that production environments are built around, or do you just understand how the tools work in isolation? Those are two different kinds of knowledge.
+When everything's running on hardware you own with no licensing bill and effectively free storage, you just don't build the instinct for what actually constrains a real SOC. You can build a pipeline that's technically correct and still have zero feel for why a company filters certain sources before they ever hit the SIEM, or why retention policies exist to control cost as much as satisfy compliance. Basically: do I understand the tradeoffs production runs on, or do I just know how to click the buttons in isolation. Different question entirely.
 
-It is worth asking yourself that question while you build, not after. Here is the honest answer to where I am.
+Worth asking yourself that while you're still building, not after. Here's where I actually stand on it.
 
-## At Homelab Scale, This Is Not a Problem
+## At Homelab Scale, None of This Bites
 
-Four Wazuh agents on local hardware generate a manageable trickle of logs. Retention is a disk question. If you are running out of space, you add storage or shorten your retention window. There is no licensing bill attached to how much data you ingest. No infrastructure team asking why your indices are eating IOPS. No compliance requirement demanding you keep everything for 36 months.
+Four Wazuh agents on my own hardware produce a trickle of logs I barely notice. Retention here is purely a disk question, running low means buy more disk or shrink the window. No licensing bill tied to ingestion. Nobody from an infra team asking why my indices are hammering IOPS. No compliance rule forcing me to keep 36 months of anything.
 
-The homelab is where you learn the tools, the detection logic, and how the pipeline fits together. The pressure does not exist at this scale and that is fine. The point is to understand the architecture well enough to know what breaks when the scale changes.
+The homelab is where the tools and the detection logic click into place, and that's fine, that's what it's for. The point isn't to feel the cost pressure now, it's to understand the architecture well enough to see what breaks once the scale changes.
 
-## What Actually Changes
+## What Actually Changes at Scale
 
-A single busy domain controller can generate [300 to 500 events per second](https://content.solarwinds.com/creative/pdf/Whitepapers/estimating_log_generation_white_paper.pdf). A standard workstation sits closer to 1 to 5. At 1,000 endpoints, even conservative log verbosity settings produce significant daily volume. A rough conversion: [1,000 EPS is approximately 8.6 GB per day](https://www.linkedin.com/posts/shahabit_siem-sizing-is-all-about-estimating-the-resources-activity-7415739284315480064-dLow). Scale that across a mid-size organization and you are looking at dozens to hundreds of gigabytes daily before you tune anything.
+A busy domain controller alone can throw [300 to 500 events per second](https://content.solarwinds.com/creative/pdf/Whitepapers/estimating_log_generation_white_paper.pdf). A normal workstation is more like 1 to 5. Put 1,000 endpoints together and even conservative logging settings add up fast, roughly [1,000 EPS works out to about 8.6 GB a day](https://www.linkedin.com/posts/shahabit_siem-sizing-is-all-about-estimating-the-resources-activity-7415739284315480064-dLow). Across a mid-size org that's dozens to hundreds of gigabytes daily before anyone's even tuned anything.
 
-[Average log volumes are growing roughly 50% year over year](https://securityboulevard.com/2025/05/reducing-siem-costs-with-a-security-data-fabric-a-practical-guide/). The data problem does not hold still.
+And it's not a fixed target either, [volumes are climbing roughly 50% year over year](https://securityboulevard.com/2025/05/reducing-siem-costs-with-a-security-data-fabric-a-practical-guide/).
 
-## The Splunk Cost Reality
+## Where Splunk Gets Expensive
 
-Splunk's traditional licensing model is built around daily ingestion volume. [List pricing starts around $1,800 per year for 1 GB per day](https://www.vendr.com/marketplace/splunk), with enterprise tiers scaling from there. A deployment ingesting 100 GB per day can run to [$150,000 per year in licensing alone](https://securityboulevard.com/2025/05/reducing-siem-costs-with-a-security-data-fabric-a-practical-guide/), before infrastructure, maintenance, or implementation costs.
+Splunk's classic licensing is priced off daily ingestion. [List pricing starts around $1,800 a year per 1 GB/day](https://www.vendr.com/marketplace/splunk), scaling up from there. Ingest 100 GB a day and you're looking at [something like $150,000 a year just in licensing](https://securityboulevard.com/2025/05/reducing-siem-costs-with-a-security-data-fabric-a-practical-guide/), before you've paid for infrastructure or anyone's time to run it.
 
-This is why Splunk ingestion discipline matters as a skill, not just a cost-cutting measure. Deciding what to send to Splunk, what to filter at the forwarder level, and what to archive elsewhere is an architectural decision that directly affects the bill. In a homelab running Splunk Enterprise on a trial license, none of this registers. In production it is the first conversation.
+That's the actual reason ingestion discipline matters, it's not just a nice-to-have. What gets sent to Splunk, what gets filtered at the forwarder before it ever arrives, what gets archived somewhere cheaper instead, those decisions land directly on the invoice. None of that registers when you're running Splunk Enterprise on a trial license at home. It's the very first conversation in production.
 
 ## Index Lifecycle Management in Elasticsearch
 
@@ -43,16 +43,14 @@ The architecture works like this:
 - **Cold tier**: infrequently accessed data, still searchable, minimal resources needed.
 - **Frozen tier**: searchable snapshots in object storage. Query performance is slower since data loads on demand, but [storage cost drops to roughly 10 to 20 times cheaper than hot-tier SSD pricing](https://www.elastic.co/docs/manage-data/lifecycle/data-tiers).
 
-ILM policies automate the transitions between phases based on index age and size. You define the rules once and Elasticsearch moves data through the tiers automatically. At homelab scale with a few agents, there is no reason to configure any of this. At production scale, not configuring it means everything stays on expensive hot-tier storage indefinitely.
+ILM policies handle the transitions automatically based on index age and size, you set the rules once and Elasticsearch does the moving. With a handful of agents at home there's genuinely no reason to touch any of this. At production scale, skipping it just means everything sits on expensive hot-tier storage forever because nobody ever told it to move.
 
-## Alert Tuning Is Not Optional at Scale
+## Noise Is the Other Half of This Problem
 
-The other side of the volume problem is noise. Detection rules that work cleanly with four endpoints can generate thousands of alerts per day with a thousand endpoints. Most of those will be false positives at first, and a SOC buried in noise stops being effective quickly.
+Volume isn't just a storage cost, it's a noise problem too. A detection rule that behaves fine on four endpoints can throw thousands of alerts a day once you're at a thousand endpoints, and most of those will be false positives until someone tunes it. A SOC drowning in noise stops working pretty fast, doesn't matter how good the detection logic is underneath.
 
-Alert tuning at scale is its own discipline: adjusting thresholds, suppressing known-good behavior, building exclusions without punching holes in coverage, and measuring false positive rates over time. The homelab is the right place to build that instinct. Adding agents, introducing deliberate misconfigurations, and watching what fires is exactly the kind of practice that transfers.
+Tuning at scale is its own skill, adjusting thresholds, suppressing known-good behavior, carving out exclusions without leaving gaps, tracking false positive rates over time. The homelab is actually a decent place to build that instinct, honestly. Adding agents, breaking things on purpose, watching what fires and what doesn't, that part does transfer.
 
-## The Point
+## Where I Land on This
 
-The homelab is not a production SOC. Nobody expects it to be. But the value of building one is understanding the architecture decisions that matter when the scale changes, before those decisions carry a $150,000 price tag.
-
-Disk is cheap. Discipline is cheaper.
+The homelab was never going to be a production SOC and I don't think anyone reading this expected it to be. The value is in understanding, ahead of time, which architecture decisions actually matter once the scale changes, instead of learning it the hard way with a $150,000 line item.
