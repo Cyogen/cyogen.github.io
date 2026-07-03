@@ -6,7 +6,7 @@ description = "Network traffic analysis from fundamentals to practical capture w
 draft = false
 +++
 
-Network traffic analysis is the skill that ties everything else together. It does not matter how good your SIEM detection is if you cannot read what is actually on the wire. This covers the core tools, their syntax, and the analytical approach for identifying suspicious traffic.
+Network traffic analysis is one of those skills that ties everything else together, doesn't matter how good your SIEM detections are if you can't actually read what's on the wire when something looks off. These are my notes on the core tools, the syntax I keep forgetting and looking up, and the general approach I've picked up for spotting suspicious traffic.
 
 ## Capture Strategy Before Touching a Tool
 
