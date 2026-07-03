@@ -6,15 +6,15 @@ description = "What I've learned about how analysts think through alert queues, 
 draft = false
 +++
 
-I haven't worked a production SOC shift. Everything I know about alert triage I've built through homelab work, CTF investigations, deliberate simulation, and studying how real analysts document their process. That framing matters. What follows is not documentation of production experience. It is what I've come to understand about how this thinking works, and how I'd approach it when I get there.
+I haven't worked a production SOC shift, so I want to be upfront about that before anyone reads this as war stories. Everything below came out of homelab work, CTF investigations, running my own simulations, and reading how real analysts talk through their process. It's not experience, it's the model I've built from studying people who have the experience.
 
-I'm documenting it here because writing it out is how I test whether I actually understand it, or just think I do.
+I'm writing it down mostly because I've noticed I don't actually know something until I try to explain it in full sentences. Half of this started as a note to myself that got long enough to be a post.
 
 ---
 
 ## How I Think About a Queue Full of Alerts
 
-The version of this I see most often framed as advice is: "start with the highest severity." I don't think that's right, and the more I've studied triage methodology the more I think severity ratings are a starting point, not a prioritization system.
+Everywhere I look, the advice is "start with the highest severity." I've come around to thinking that's kind of wrong, or at least incomplete. Severity is a starting point, it's not the queue order.
 
 The way I understand it: you triage the queue before you investigate anything. You're looking for patterns across all the open alerts before you pull any single one.
 
@@ -67,7 +67,7 @@ My understanding of the correct order here: contain first, investigate second. I
 After isolation, I'd work backwards:
 
 - **Identify the email:** sender, sending IP, the URL or attachment, and who else received it. The same email in fifty mailboxes is a very different response than a targeted single delivery.
-- **Check what the URL actually served:** was it a credential harvester, a drive-by download, or a redirect chain? URLScan.io or a detonation sandbox shows the behavior without re-clicking it. If it was a credential harvesting page, I'd reset the user's credentials immediately, before confirming whether they submitted anything. You can re-issue a password. You can't un-leak one.
+- **Check what the URL actually served:** was it a credential harvester, a drive-by download, or a redirect chain? URLScan.io or a detonation sandbox shows the behavior without re-clicking it. If it was a credential harvesting page, I'd reset the user's credentials before I even confirmed they typed anything in. Resetting a password costs a few minutes of annoyance. Waiting to find out if credentials leaked costs a lot more if the answer is yes.
 - **Check the endpoint:** what process spawned from the browser after the click? Sysmon Event ID 1. Any scripting engine, document viewer, or unexpected binary that launched from the browser in the window after the click gets treated as execution until I can prove otherwise.
 - **Check authentication logs:** did the account log in from somewhere new after the click? Event ID 4624 (successful logon) with an unexpected source IP, or 4648 (logon with explicit credentials) from an unfamiliar process, means credentials were used.
 - **Scope it:** did the same domain or sending IP appear in other mailboxes? Did the file hash show up on other endpoints? I'd treat it as a campaign until I can prove it was isolated.
@@ -122,6 +122,6 @@ Sysmon fills the gaps native Windows logging leaves open. Event ID 1 (process cr
 
 ## What I'm Still Building
 
-There's a version of this article that reads as confident instruction, and I actively didn't want to write that version. The scenarios above are how I understand these things work, built from homelab simulations, documentation of real SOC workflows, and the kind of deliberate practice that comes from not having the production environment yet.
+I could've written this like a how-to guide, like I've done all of it a hundred times on the job. I didn't want to fake that. Everything above is my best current model, pieced together from a homelab, other people's writeups, and a lot of deliberately breaking things to see what the logs look like afterward.
 
-The gap between homelab scale and a real alert queue is real. But the thinking transfers. That's the point of building the lab.
+A real queue at 2am with forty open tickets is going to feel nothing like this. I know that. But the reasoning underneath it should hold up either way, and that's really the whole reason I built the lab in the first place.
