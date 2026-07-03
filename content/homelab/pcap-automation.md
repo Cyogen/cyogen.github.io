@@ -6,7 +6,7 @@ description = "Automated PCAP analysis pipeline using Scapy and tshark. Feed it 
 draft = false
 +++
 
-Manual PCAP triage is slow. The same workflow runs every time: top protocols, top talkers, HTTP POST inspection, DNS anomaly check, file extraction. This pipeline automates the initial pass so the first 5 minutes of analysis happen in seconds.
+I got tired of doing the same manual PCAP triage every single time, top protocols, top talkers, HTTP POST inspection, DNS anomaly check, file extraction, so I automated the first pass. Same checks, just in seconds instead of five minutes of clicking around.
 
 Source: [github.com/Alchemestrum/PCAP_automation](https://github.com/Alchemestrum/PCAP_automation)
 
@@ -125,6 +125,6 @@ For visual triage, adding Wireshark coloring rules for DNS TXT queries and HTTP 
 
 ---
 
-## Current State
+## Where It's At Right Now
 
-This is a work in progress. The core pipeline is functional, but the heuristics are basic. Current detection logic covers the obvious patterns: beacon timing, large transfers, long DNS names, HTTP POST anomalies. The next phase is integrating network flow baselines so the tool can flag deviations from normal communication patterns rather than just absolute thresholds.
+Still very much a work in progress. The pipeline works fine, but the heuristics behind it are pretty basic right now, it catches the obvious stuff like beacon timing, large transfers, long DNS names, HTTP POST weirdness. What I actually want next is flow baselining, so it flags deviation from what's normal for a given network instead of just checking against fixed thresholds.
