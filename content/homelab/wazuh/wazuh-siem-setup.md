@@ -6,11 +6,7 @@ description = "Installing Wazuh all-in-one on a Debian server, registering agent
 draft = false
 +++
 
-Every SOC runs a SIEM. For this lab, that's Wazuh: an open source platform
-that handles log collection, threat detection, and alerting across every
-machine on the network. This post covers the full install on a dedicated Debian
-server, connecting agents on Arch Linux and Windows Server, and every
-problem that came up in between.
+Every SOC needs a SIEM somewhere at the center of it, and for this lab I went with Wazuh, it's open source and handles log collection, threat detection, and alerting across whatever's on the network. This is the full install on a dedicated Debian box, hooking up agents on Arch Linux and a Windows Server VM, and every single thing that went wrong along the way, because plenty did.
 
 ## Hardware
 
@@ -213,6 +209,4 @@ Three endpoints reporting into Wazuh:
 | DC01 | Windows Server 2022 | Active Directory domain controller |
 | SIEM Server | Debian (local agent 000) | Wazuh manager itself |
 
-The SIEM is collecting logs, running rules, and generating alerts. Next step:
-a case management platform to track what needs action: that's TheHive, covered
-in the next post.
+So the SIEM's collecting logs, running rules, and throwing alerts now. What it doesn't have yet is anywhere to actually track what needs action, that's TheHive's job, and I get into setting that up in the next post.
