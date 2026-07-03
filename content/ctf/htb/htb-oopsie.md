@@ -18,7 +18,7 @@ draft = false
 | Release     | 2021                               |
 | Tags        | Web, IDOR, Cookie Manipulation, File Upload, PHP, RCE, SUID, PATH Hijack |
 
-Oopsie is the second box in the HTB Starting Point Tier 2 path. It builds on credentials carried over from the first box (Archetype) and introduces a chain of: web enumeration → guest login with cookie manipulation → IDOR to enumerate a super admin account → PHP reverse shell upload → credential harvesting from a PHP database file → lateral movement to `robert` → SUID binary exploitation via PATH hijack to root.
+Oopsie is the second box in the Starting Point Tier 2 path. It carries over credentials from the previous box (Archetype), and the chain from there is a good one to know cold: web enumeration, a guest login you can manipulate with cookies, an IDOR that hands you a super admin account, a PHP reverse shell upload, credentials sitting in plaintext in a PHP config file, a hop over to `robert`, and finally a SUID binary you can PATH-hijack straight to root.
 
 ---
 
@@ -552,11 +552,11 @@ nmap scan
 
 ---
 
-## Key Takeaways
+## Things Worth Remembering From This One
 
-- **Information disclosure in page source** is a low-hanging fruit that is often overlooked. A script tag reference to `/cdn-cgi/login/script.js` gave away the entire admin panel location.
-- **Client-side cookies are not access controls.** The application trusted the `role` and `user` cookies without any server-side validation. Changing them in DevTools was sufficient to escalate from guest to super admin.
-- **IDOR via URL parameter** allowed full account enumeration. The `id` parameter on the accounts page iterated through every user record with no authentication check beyond the cookie.
-- **No file upload filter** was present: the PHP shell uploaded without any bypass needed. Even a basic extension or MIME-type check would have blocked this.
-- **Credentials reuse in PHP config files** is extremely common. `db.php` credentials were reused as OS-level credentials for `robert`.
-- **Relative paths in SUID binaries** are a classic privilege escalation pattern. Any SUID binary that calls another program without an absolute path is vulnerable to PATH hijacking.
+- **Check the page source before anything fancier.** People sleep on this. One script tag pointing at `/cdn-cgi/login/script.js` handed over the entire admin panel location for free.
+- **Cookies are not an access control if the server never checks them.** The app just trusted `role` and `user` at face value. Editing two values in DevTools took me from guest to super admin, no exploit needed.
+- **The `id` parameter was a straight IDOR.** No auth check beyond whatever the cookie said, so I could walk every account in the system just by incrementing a number.
+- **There was no upload filter at all.** The PHP shell went up with zero fighting. Even a lazy extension check would've stopped this cold.
+- **Credential reuse in `db.php` is way too common to not check for.** Those same creds worked as an actual OS login for `robert`.
+- **Relative paths inside SUID binaries are a gift.** Anything SUID that shells out to another program without a full path is basically asking to be PATH-hijacked.
