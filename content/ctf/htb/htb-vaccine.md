@@ -18,7 +18,7 @@ draft = false
 | Release     | 2021                               |
 | Tags        | FTP, Hash Cracking, SQL Injection, PostgreSQL, Sudo Exploitation |
 
-Vaccine is the third box in the HTB Starting Point Tier 2 path. It builds on credentials found in earlier machines (Oopsie), and demonstrates a clean chain of: anonymous FTP access → ZIP and hash cracking → authenticated SQL injection → OS command execution → privilege escalation via a sudoers misconfiguration.
+Vaccine is the third box in the Starting Point Tier 2 chain and it carries the credentials forward from Oopsie. Path here is anonymous FTP, cracking a zip and then an MD5 hash inside it, authenticated SQLi that turns into an actual OS shell, and then a sudoers misconfiguration that hands you root through vi of all things.
 
 ---
 
@@ -413,11 +413,11 @@ nmap scan
 
 ---
 
-## Key Takeaways
+## Things Worth Remembering From This One
 
-- Anonymous FTP is a dangerous default; never expose a server to it without tight firewall controls.
-- Backing up web application source to an FTP-accessible directory leaks credentials and business logic.
-- Storing passwords as unsalted MD5 offers no real protection: the hash cracks in milliseconds against any wordlist.
-- Authenticated SQL injection is still a critical vulnerability even when login requires a password.
-- PostgreSQL's `COPY FROM PROGRAM` makes `--os-shell` in sqlmap particularly effective compared to MySQL.
-- Overly permissive sudoers entries: especially for editors: are a well-known privilege escalation vector documented extensively on [GTFOBins](https://gtfobins.github.io/gtfobins/vi/).
+- Anonymous FTP is one of those defaults that just shouldn't exist on anything internet-facing without a firewall doing serious work in front of it.
+- Dropping a backup of your web app source somewhere FTP can reach it is basically handing out your credentials and business logic for free.
+- Unsalted MD5 buys you nothing. That hash cracked in milliseconds against a wordlist that's over a decade old at this point.
+- Requiring a login doesn't make SQLi any less dangerous once you're past it, authenticated injection is still full compromise.
+- sqlmap's `--os-shell` hits a lot harder against PostgreSQL than MySQL because of `COPY FROM PROGRAM`, worth remembering when you're picking your attack angle.
+- Sudoers entries for editors are basically a known root shortcut at this point, [GTFOBins](https://gtfobins.github.io/gtfobins/vi/) has the whole list if you ever need a reminder mid-engagement.
