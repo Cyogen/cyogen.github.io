@@ -6,11 +6,11 @@ description = "Standing up Splunk Enterprise on a Debian server, wiring up a Uni
 draft = false
 +++
 
-The lab already has Wazuh running as the primary SIEM. Splunk is the industry
-standard: most enterprise SOC job postings list it as a requirement. Both are
-now running simultaneously on the same hardware. Wazuh handles endpoint detection
-and case management. Splunk handles log analysis, SPL practice, and Boss of the SOC
-investigations.
+Wazuh's already running as the primary SIEM in the lab, but Splunk keeps
+showing up as a requirement on basically every SOC job posting I look at, so
+it needed to happen too. Both are running on the same hardware now. Wazuh
+handles endpoint detection and case management, Splunk's there for log
+analysis, SPL practice, and eventually working through Boss of the SOC.
 
 ## Hardware
 
@@ -185,11 +185,8 @@ index=main source="/var/log/syslog"
 Real-time system events, auth logs, sudo activity, SSH sessions: all
 searchable in Splunk.
 
-## Result
+## Where It Landed
 
-Splunk Enterprise is running on the SIEM server at `http://10.0.42.114:8000`. The Arch Linux workstation
-is forwarding both package manager history and live system logs. Two data
-sources, one forwarder, one Splunk instance.
+Splunk Enterprise is up and running at `http://10.0.42.114:8000`, and the Arch box is forwarding both the package manager history and live system logs now. Two sources, one forwarder, one Splunk instance, and a lot more syslog-ng troubleshooting than I expected going in.
 
-Next: Splunk Fundamentals 1 and 2 to build SPL proficiency before moving into
-Boss of the SOC investigations.
+Next up is Splunk Fundamentals 1 and 2 so I actually know SPL before I try Boss of the SOC.
