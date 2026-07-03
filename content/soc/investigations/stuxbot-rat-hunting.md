@@ -6,7 +6,7 @@ description = "A hypothesis-driven threat hunt through endpoint logs tracing Stu
 draft = false
 +++
 
-StuxBot is a remote access trojan with multiple C&C servers. This is a full trace of the infection chain found during a threat hunting lab exercise using Sysmon logs and Splunk. The goal was to follow the evidence from the initial delivery email through to full domain compromise.
+StuxBot is a RAT running multiple C&C servers, and this is the full trace I put together during a threat hunting lab exercise using Sysmon logs and Splunk. Started with basically nothing but a hunch and just followed the evidence, from the first phishing email all the way to full domain compromise.
 
 C&C nodes identified:
 
