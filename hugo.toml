@@ -108,6 +108,18 @@ paginate = 1000
     url = "/certs/cissp"
     parent = "certs"
     weight = 1
+  [[menu.main]]
+    identifier = "certs-secplus"
+    name = "Security+"
+    url = "/certs/secplus"
+    parent = "certs"
+    weight = 2
+  [[menu.main]]
+    identifier = "certs-cysa"
+    name = "CySA+"
+    url = "/certs/cysa"
+    parent = "certs"
+    weight = 3
 
   [[menu.main]]
     identifier = "articles"
